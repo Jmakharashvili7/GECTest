@@ -9,6 +9,7 @@ using namespace std;
 // Prototype
 void SwitchValues(int& number1, int& number2);
 void LargestNumber(int numbers[], int arraySize, int& largestNumPos, int& largestNum);
+// Declare and isolate all the calls.
 
 int main()
 {
