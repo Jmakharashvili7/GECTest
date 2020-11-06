@@ -6,9 +6,12 @@
 
 using namespace std;
 
-// Prototype
+// Prototypes
 void SwitchValues(int& number1, int& number2);
 void LargestNumber(int numbers[], int arraySize, int& largestNumPos, int& largestNum);
+void PrintOrdered(int numbers[], int arraySize);
+void PrintReversedOrder(int numbers[], int arraySize);
+
 // Declare and isolate all the calls.
 
 int main()
@@ -23,23 +26,9 @@ int main()
         cin >> numbers[i];
     }
 
-    // Order the array in ascending order
-    for (int i = 0; i < size(numbers); i++)
-    {
-        for (int j = (i + 1); j < size(numbers); j++)
-            if (numbers[i] > numbers[j])
-                SwitchValues(numbers[i], numbers[j]);
-    }
+    PrintOrdered(numbers, size(numbers));
 
-    // Output array
-    cout << endl << "The ordered array: " << endl;
-    for (int i = 0; i < size(numbers); i++)
-        cout << "Number " << i+1 << " is " << numbers[i] << endl;
-
-    // Output in descending order
-    cout << endl << "The array backwards is: " << endl;
-    for (int i = 0; i < size(numbers); i++)
-        cout << "Number " << size(numbers) - i << " is " << numbers[(size(numbers) - i) - 1] << endl;
+    PrintReversedOrder(numbers, size(numbers));
 
     LargestNumber(numbers, size(numbers), largestNumPos, LargestNum); // Sets the largest number and its position
 
@@ -52,6 +41,38 @@ void SwitchValues(int& number1, int& number2)
     int temp = number1;
     number1 = number2;
     number2 = temp;
+}
+
+void PrintOrdered(int numbers[], int arraySize)
+{
+    // Order the array in ascending order
+    for (int i = 0; i < arraySize; i++)
+    {
+        for (int j = (i + 1); j < arraySize; j++)
+            if (numbers[i] > numbers[j])
+                SwitchValues(numbers[i], numbers[j]);
+    }
+
+    // Output array
+    cout << endl << "The ordered array: " << endl;
+    for (int i = 0; i < arraySize; i++)
+        cout << "Number " << i + 1 << " is " << numbers[i] << endl;
+}
+
+void PrintReversedOrder(int numbers[], int arraySize)
+{
+    // Order the array in descending order
+    for (int i = 0; i < arraySize; i++)
+    {
+        for (int j = (i + 1); j < arraySize; j++)
+            if (numbers[i] < numbers[j])
+                SwitchValues(numbers[i], numbers[j]);
+    }
+
+    // Output array
+    cout << endl << "The reversed array: " << endl;
+    for (int i = 0; i < arraySize; i++)
+        cout << "Number " << i + 1 << " is " << numbers[i] << endl;
 }
 
 void LargestNumber(int numbers[], int arraySize, int& largestNumPos, int& largestNum)
