@@ -1,0 +1,10 @@
+Alex 500
+kyle 120
+Mark 120
+Jaba 50
+N/A 0
+N/A 0
+N/A 0
+N/A 0
+N/A 0
+N/A 0
